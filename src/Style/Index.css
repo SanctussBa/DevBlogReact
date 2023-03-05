@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+.main-container {
+    display: flex;
+}
+
+.main-container-left {
+    flex: 1;
+    background-color: rgb(240, 205, 160);
+}
+.main-container-middle {
+    flex: 3;
+    background-color: rgb(174, 236, 236);
+}
+.main-container-right {
+    flex: 1;
+    background-color: rgb(189, 221, 114);
+}
+
+.post-item-container {
+    margin-top: 10px;
+    background-color: blanchedalmond;
+}
