@@ -9,6 +9,7 @@ export function useDataContext() {
 export function DataProvider({ children }) {
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState({});
+  const [logs, setLogs] = useState([]);
 
   const fetchAllPosts = async () => {
     try {
@@ -30,6 +31,17 @@ export function DataProvider({ children }) {
     }
   };
 
+  const fetchLogs = async () => {
+    try {
+      const response = await fetch ("https://localhost:7242/api/Logs");
+      const data = await response.json();
+      setLogs(data);
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -37,7 +49,9 @@ export function DataProvider({ children }) {
         fetchAllPosts,
         setPosts,
         fetchPostById,
-        post
+        post,
+        fetchLogs,
+        logs
       }}
     >
       {children}

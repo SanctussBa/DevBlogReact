@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDataContext } from "../Context/DataContext";
 
@@ -7,10 +7,9 @@ const Post = () => {
     const { post, fetchPostById } = useDataContext();
 
   useEffect(() => {
-    console.log(id);
     fetchPostById(id)
-
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return (
     <>
